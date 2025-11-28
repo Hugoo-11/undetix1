@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - UNDETIX</title>
+    <link rel="stylesheet" href="style/style.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main>
+        <div class="cart-wrapper">
+            <h2 class="cart-header">My shopping bag</h2>
+
+            <div class="cart-list">
+                <!-- ITEM 1 -->
+                <div class="cart-item">
+                    <div class="cart-item-img">
+                        <img src="imagenes/pantalon.jpg" alt="Producto">
+                    </div>
+                    <div class="cart-item-details">
+                        <p class="cart-item-title">Pantalón de pana blanco</p>
+                        <span class="cart-item-price">31 €</span>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="qty-selector">
+                            <span style="font-size: 12px; font-weight: bold;">Quantity:</span>
+                            <div style="display: flex; gap: 5px;">
+                                <button>-</button>
+                                <span>1</span>
+                                <button>+</button>
+                            </div>
+                        </div>
+                        <span class="remove-link">Remove</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 2 -->
+                <div class="cart-item">
+                    <div class="cart-item-img">
+                        <img src="imagenes/pantalon2.jpg" alt="Producto">
+                    </div>
+                    <div class="cart-item-details">
+                        <p class="cart-item-title">Pantalón Azul</p>
+                        <span class="cart-item-price">31 €</span>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="qty-selector">
+                            <span style="font-size: 12px; font-weight: bold;">Quantity:</span>
+                            <div style="display: flex; gap: 5px;">
+                                <button>-</button>
+                                <span>1</span>
+                                <button>+</button>
+                            </div>
+                        </div>
+                        <span class="remove-link">Remove</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px; font-size: 12px;">
+                <label><input type="checkbox"> Buying as a Gift? Tick here to include gift wrapping.</label><br><br>
+                <label><input type="checkbox"> Do you want to subscribe to our newsletter?</label>
+            </div>
+
+            <div class="cart-footer">
+                <p class="cart-total">Total: 62.00 €</p>
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <span style="font-size: 12px; color: #666; cursor: pointer;">Continue with payment</span>
+                    <button class="btn-checkout">Payment</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#header-container").load("fragments/header.html");
+            $("#footer-container").load("fragments/footer.html");
+            $(document).on('click', '#menuToggle', function() { $(this).toggleClass('open'); $('#mega-menu').toggleClass('active'); });
+            $(document).on('click', '.cat-item', function() {
+                $('.cat-item').removeClass('active-cat'); $(this).addClass('active-cat');
+                var targetList = $(this).data('target'); $('.sub-list').removeClass('active-list'); $('#' + targetList).hide().addClass('active-list').fadeIn(200);
+            });
+        });
+    </script>
+</body>
+</html>

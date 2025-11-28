@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camisetas Hombre - UNDETIX</title>
+    <link rel="stylesheet" href="style/style.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <h1 class="page-title">CAMISETAS HOMBRE</h1>
+        
+        <div class="catalog-container">
+            <h2 class="section-title">Best Selling</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <a href="product.html">
+                        <img src="imagenes/camiseta.jpg" alt="Camiseta">
+                    </a>
+                    <p class="prod-name">Camiseta Básica</p>
+                    <p class="prod-price">29,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+                <div class="product-card">
+                    <a href="product.html">
+                        <img src="imagenes/camiseta.jpg" alt="Camiseta">
+                    </a>
+                    <p class="prod-name">Camiseta Logo</p>
+                    <p class="prod-price">29,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+                <div class="product-card">
+                    <a href="product.html">
+                        <img src="imagenes/camiseta.jpg" alt="Camiseta">
+                    </a>
+                    <p class="prod-name">Camiseta Estampada</p>
+                    <p class="prod-price">29,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+                <div class="product-card">
+                    <a href="product.html">
+                        <img src="imagenes/camiseta.jpg" alt="Camiseta">
+                    </a>
+                    <p class="prod-name">Camiseta Vintage</p>
+                    <p class="prod-price">29,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+            </div>
+
+            <h2 class="section-title">Todos los productos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <a href="product.html">
+                        <img src="imagenes/camiseta.jpg" alt="Camiseta">
+                    </a>
+                    <p class="prod-name">Camiseta Manga Larga</p>
+                    <p class="prod-price">35,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+                <div class="product-card">
+                    <a href="product.html">
+                        <img src="imagenes/camiseta.jpg" alt="Camiseta">
+                    </a>
+                    <p class="prod-name">Polo Piqué</p>
+                    <p class="prod-price">39,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+                <div class="product-card">
+                    <a href="product.html">
+                        <img src="imagenes/camiseta.jpg" alt="Camiseta">
+                    </a>
+                    <p class="prod-name">Camiseta Oversize</p>
+                    <p class="prod-price">29,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+                <div class="product-card">
+                    <a href="product.html">
+                        <img src="imagenes/camiseta.jpg" alt="Camiseta">
+                    </a>
+                    <p class="prod-name">Camiseta Rayas</p>
+                    <p class="prod-price">29,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+    <script>
+        $(document).ready(function() {
+            $("#header-container").load("fragments/header.html");
+            $("#footer-container").load("fragments/footer.html");
+            $(document).on('click', '#menuToggle', function() { $(this).toggleClass('open'); $('#mega-menu').toggleClass('active'); });
+            $(document).on('click', '.cat-item', function() {
+                $('.cat-item').removeClass('active-cat'); $(this).addClass('active-cat');
+                var targetList = $(this).data('target'); $('.sub-list').removeClass('active-list'); $('#' + targetList).hide().addClass('active-list').fadeIn(200);
+            });
+        });
+    </script>
+</body>
+</html>

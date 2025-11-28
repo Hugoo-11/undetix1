@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalones Hombre - UNDETIX</title>
+    <link rel="stylesheet" href="style/style.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main>
+        <h1 class="page-title">PANTALONES HOMBRE</h1>
+        
+        <div class="catalog-container">
+            
+            <!-- SECCIÓN BEST SELLING (3 COLUMNAS) -->
+            <h2 class="section-title">Best Selling</h2>
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <a href="product.html?producto=blanco">
+                        <img src="imagenes/pantalon.jpg" alt="Pantalon">
+                    </a>
+                    <p class="prod-name">Pantalón Pana</p>
+                    <p class="prod-price">29,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <a href="product.html?producto=azul">
+                        <img src="imagenes/pantalon2.jpg" alt="Pantalon">
+                    </a>
+                    <p class="prod-name">Jeans Azul</p>
+                    <p class="prod-price">29,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+                <!-- Producto 3 (Necesario para completar fila de 3) -->
+                <div class="product-card">
+                    <img src="imagenes/pantalon3.jpg" alt="Pantalon">
+                    <p class="prod-name">Chino Beige</p>
+                    <p class="prod-price">25,99 EUR</p>
+                    <button>Buy now</button>
+                </div>
+            </div>
+
+            <!-- SECCIÓN RESTO DE PRODUCTOS (3 COLUMNAS) -->
+            <h2 class="section-title">Todos los productos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="imagenes/pantalon4.jpg" alt="Pantalon">
+                    <p class="prod-name">Cargo Negro</p>
+                    <button>Buy now</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagenes/pantalon.jpg" alt="Pantalon">
+                    <p class="prod-name">Pantalón Pana</p>
+                    <button>Buy now</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagenes/pantalon2.jpg" alt="Pantalon">
+                    <p class="prod-name">Jeans Azul</p>
+                    <button>Buy now</button>
+                </div>
+                <div class="product-card">
+                    <img src="imagenes/pantalon3.jpg" alt="Pantalon">
+                    <p class="prod-name">Recto Gris</p>
+                    <button>Buy now</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#header-container").load("fragments/header.html");
+            $("#footer-container").load("fragments/footer.html");
+
+            $(document).on('click', '#menuToggle', function() {
+                $(this).toggleClass('open');
+                $('#mega-menu').toggleClass('active');
+            });
+
+            $(document).on('click', '.cat-item', function() {
+                $('.cat-item').removeClass('active-cat');
+                $(this).addClass('active-cat');
+                var targetList = $(this).data('target');
+                $('.sub-list').removeClass('active-list');
+                $('#' + targetList).hide().addClass('active-list').fadeIn(200);
+            });
+        });
+    </script>
+</body>
+</html>

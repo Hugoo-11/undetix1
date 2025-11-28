@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Producto - UNDETIX</title>
+    <link rel="stylesheet" href="style/style.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main>
+        <div class="product-detail-container">
+            <div class="product-detail-img">
+                <img id="img" src="" alt="Producto">
+            </div>
+            <div class="product-detail-info">
+                <h1 id="titulo" style="font-size: 32px; margin-bottom: 20px; font-family: serif;"></h1>
+                <p style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">31 €</p>
+                <p style="line-height: 1.6; margin-bottom: 30px; color: #666;">
+                    Este producto es un ejemplo de la calidad premium de UNDETIX. Confeccionado con materiales sostenibles y diseñado para durar.
+                </p>
+                <button class="btn-black">AÑADIR A LA CESTA</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#header-container").load("fragments/header.html");
+            $("#footer-container").load("fragments/footer.html");
+            
+            // Lógica Menú
+            $(document).on('click', '#menuToggle', function() { $(this).toggleClass('open'); $('#mega-menu').toggleClass('active'); });
+            $(document).on('click', '.cat-item', function() {
+                $('.cat-item').removeClass('active-cat'); $(this).addClass('active-cat');
+                var targetList = $(this).data('target'); $('.sub-list').removeClass('active-list'); $('#' + targetList).hide().addClass('active-list').fadeIn(200);
+            });
+
+            // Lógica de carga de producto por URL
+            const params = new URLSearchParams(window.location.search);
+            const prod = params.get("producto");
+
+            if(prod === "blanco"){
+                $("#titulo").text("Pantalón de pana blanco");
+                $("#img").attr("src", "imagenes/pantalon.jpg");
+            } else if(prod === "azul"){
+                $("#titulo").text("Pantalón de pana azul");
+                $("#img").attr("src", "imagenes/pantalon2.jpg");
+            } else {
+                // Default
+                $("#titulo").text("Producto no encontrado");
+            }
+        });
+    </script>
+</body>
+</html>
