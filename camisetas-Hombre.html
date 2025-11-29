@@ -91,13 +91,24 @@
     <div id="footer-container"></div>
     <script>
         $(document).ready(function() {
+
             $("#header-container").load("fragments/header.html");
             $("#footer-container").load("fragments/footer.html");
-            $(document).on('click', '#menuToggle', function() { $(this).toggleClass('open'); $('#mega-menu').toggleClass('active'); });
-            $(document).on('click', '.cat-item', function() {
-                $('.cat-item').removeClass('active-cat'); $(this).addClass('active-cat');
-                var targetList = $(this).data('target'); $('.sub-list').removeClass('active-list'); $('#' + targetList).hide().addClass('active-list').fadeIn(200);
+
+            $(document).on('click', '#menuToggle', function() {
+                $(this).toggleClass('open');
+                $('#mega-menu').toggleClass('active');
             });
+
+            $(document).on('click', '.cat-item', function() {
+                $('.cat-item').removeClass('active-cat');
+                $(this).addClass('active-cat');
+
+                var targetList = $(this).data('target');
+                $('.sub-list').removeClass('active-list');
+                $('#' + targetList).hide().addClass('active-list').fadeIn(200);
+            });
+
         });
     </script>
 </body>

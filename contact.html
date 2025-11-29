@@ -54,49 +54,24 @@
 
     <script>
         $(document).ready(function() {
-            // Cargar Header y Footer
+
             $("#header-container").load("fragments/header.html");
             $("#footer-container").load("fragments/footer.html");
 
-            // Lógica Menú Hamburguesa
-            $(document).on('click', '#menuToggle', function() { $(this).toggleClass('open'); $('#mega-menu').toggleClass('active'); });
+            $(document).on('click', '#menuToggle', function() {
+                $(this).toggleClass('open');
+                $('#mega-menu').toggleClass('active');
+            });
+
             $(document).on('click', '.cat-item', function() {
-                $('.cat-item').removeClass('active-cat'); $(this).addClass('active-cat');
-                var targetList = $(this).data('target'); $('.sub-list').removeClass('active-list'); $('#' + targetList).hide().addClass('active-list').fadeIn(200);
+                $('.cat-item').removeClass('active-cat');
+                $(this).addClass('active-cat');
+
+                var targetList = $(this).data('target');
+                $('.sub-list').removeClass('active-list');
+                $('#' + targetList).hide().addClass('active-list').fadeIn(200);
             });
 
-            // Validación del Formulario
-            $("#miFormulario").submit(function (evento) {
-                evento.preventDefault();
-
-                var nombre = $("#nombre").val();
-                var email = $("#email").val();
-                var mensaje = $("#mensaje").val();
-                var hayError = false;
-
-                // Resetear estilos
-                $(".form-group input, .form-group textarea").css("border", "1px solid #ccc");
-
-                if (nombre == "") {
-                    $("#nombre").css("border", "1px solid red");
-                    hayError = true;
-                }
-                if (email == "") {
-                    $("#email").css("border", "1px solid red");
-                    hayError = true;
-                }
-                if (mensaje == "") {
-                    $("#mensaje").css("border", "1px solid red");
-                    hayError = true;
-                }
-
-                if (!hayError) {
-                    alert("¡Gracias! Tu mensaje ha sido enviado correctamente.");
-                    $("#miFormulario")[0].reset();
-                } else {
-                    alert("Por favor, completa los campos requeridos.");
-                }
-            });
         });
     </script>
 </body>
